@@ -79,12 +79,7 @@ Cmatriz Cmatriz::operator + (const Cmatriz &Matriz){
 	return (temp);
 }
 
-Cmatriz Cmatriz::operator * (const float &escalar){
-	Cmatriz temp(*this);
-	for(int i=0;i<this->filas;i++){
-		for(int j=0;j<this->columnas;j++){
-			temp.ptdata[i][j]*=escalar;
-		}
-	}
+Cmatriz Cmatriz::operator - (const Cmatriz &Matriz){
+	
 	return (temp);
 }
