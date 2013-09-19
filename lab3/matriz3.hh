@@ -7,7 +7,7 @@ using namespace std;
 
 class Cmatriz{
 	
-	friend ostream& operator << (ostream &, const Cmatriz &);
+	friend ostream& operator<<(ostream&, const Cmatriz &);
 	//Similar a desplegar()
 	
 	friend Cmatriz operator * (const Cmatriz &, const float &);

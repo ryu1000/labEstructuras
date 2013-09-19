@@ -1,4 +1,4 @@
-#include "matriz2.hh"
+#include "matriz3.hh"
 
 Cmatriz::Cmatriz(int n, int m){
 	filas=n;
@@ -79,7 +79,42 @@ Cmatriz Cmatriz::operator + (const Cmatriz &Matriz){
 	return (temp);
 }
 
-Cmatriz Cmatriz::operator - (const Cmatriz &Matriz){
-	
+Cmatriz Cmatriz::operator-(const Cmatriz &Matriz){
+	Cmatriz temp(*this);
+	for(int i=0;i<this->filas;i++){
+		for(int j=0;j<this->columnas;j++){
+			temp.ptdata[i][j]-=Matriz.ptdata[i][j];
+		}
+	}
+	return (temp);
+}
+
+ostream& operator<<(ostream& Output, const Cmatriz &Matriz){
+	for(int i=0;i<Matriz.filas;i++){
+		for(int j=0;j<Matriz.columnas;j++){
+			Output<<Matriz.get(i,j)<<"\t";
+			}
+		cout<<endl;
+	}
+	return Output;
+}
+
+Cmatriz operator * (const Cmatriz &Matriz, const float &escalar){
+	Cmatriz temp(Matriz);	
+	for(int i=0;i<temp.filas;i++){
+		for(int j=0;j<temp.columnas;j++){
+			temp.ptdata[i][j]*=escalar;
+		}
+	}
+	return (temp);
+}
+
+Cmatriz operator * (const float &escalar, const Cmatriz &Matriz){
+	Cmatriz temp(Matriz);	
+	for(int i=0;i<temp.filas;i++){
+		for(int j=0;j<temp.columnas;j++){
+			temp.ptdata[i][j]*=escalar;
+		}
+	}
 	return (temp);
 }
