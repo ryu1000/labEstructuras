@@ -1,4 +1,4 @@
-#include "matriz1.h"
+#include "matriz1.hh"
 #include <iostream>
 
 void displaymatriz(int,int,const Cmatriz &);

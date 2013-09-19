@@ -1,4 +1,4 @@
-#include "matriz1.h"
+#include "matriz1.hh"
 
 Cmatriz::Cmatriz(int n, int m){
 	filas=n;
