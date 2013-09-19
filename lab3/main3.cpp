@@ -1,4 +1,4 @@
-#include "matriz2.hh"
+#include "matriz3.hh"
 #include <iostream>
 
 void fillmatriz(int,int,Cmatriz &);
@@ -8,19 +8,21 @@ using namespace std;
 int main(){
 	const int n=2;
 	const int m=3;
-	cout<<"Probando los operadores =, + y *"<<endl;
+	cout<<"Probando los operadores =, +, - y *"<<endl;
 	cout<<"A:"<<endl;
 	Cmatriz A(n,m);
 	fillmatriz(n,m,A);
+	cout<<A<<endl;
 	A.desplegar();
 	cout<<"B:"<<endl;
 	Cmatriz B(A);
-	B=A*2;
+	B=3*A;
+	cout<<B<<endl;
 	B.desplegar();
 	cout<<"C:"<<endl;
-	Cmatriz C=A+B;
+	Cmatriz C=B-A;
+	cout<<C<<endl;
 	C.desplegar();
-	cout<<C(0,0)<<"\n"<<C(1,1)<<endl;
 	return 0;
 }
 
