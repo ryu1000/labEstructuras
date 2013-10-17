@@ -3,7 +3,7 @@ CC = g++
 DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG) -pedantic
 LFLAGS = -Wall $(DEBUG) -pedantic
-TARGET = main
+TARGET = main.exe
 
 all: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o $(TARGET)
