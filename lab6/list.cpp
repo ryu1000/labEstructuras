@@ -5,14 +5,19 @@ using namespace std;
 
 template <class T>
 bool palin(const list<T> &L){
+	bool bandera=true;
 	if (L.size()==1)
 		return true;
 	else{
 		while(L.size()!=1){
-			T primero=L.pop_front();
-			T ultimo=L.pop_back();
-			/*if(primero=!ultimo)
-				return false;*/
+			T primero=L.front();
+			T ultimo=L.back();
+			if(primero=!ultimo){
+				bandera=false;
+				break;
+			}
+			L.pop_front();
+			L.pop_back();
 		}
 		return true;
 	}
