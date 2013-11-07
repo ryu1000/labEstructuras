@@ -25,7 +25,7 @@ string palin(list<T> L){
 }
 
 template <class T>
-string findLastOf(list<T> &L, T valor){
+string findLastOf(list<T> L, T valor){
 	int contador=0;
 	int posicion=0;
 	typename list<T>::iterator it;
@@ -43,7 +43,7 @@ string findLastOf(list<T> &L, T valor){
 }
 
 template <class T>
-string sequentialSearch(list<T> &L, T valor){
+string sequentialSearch(list<T> L, T valor){
 	int contador=0;
 	int posicion=0;
 	typename list<T>::iterator it;
@@ -58,6 +58,52 @@ string sequentialSearch(list<T> &L, T valor){
 	return ("end()");
 }
 
+template <class T>
+bool isOnList(list<T> L, T valor){
+	int contador=0;
+	typename list<T>::iterator it;
+	for(it=L.begin();it!=L.end();++it){
+		contador++;
+		if(valor==(*it)){
+			return true;
+		}
+	}
+	return false;
+}
+
+template <class T>
+void removeDup(list<T> L){
+	bool flag;
+	list<T> out;
+	
+	typename list<T>::iterator it;
+	
+	for(it=L.begin();it!=L.end();++it){
+		
+		//cout << "*it " << *it << endl;
+		
+		flag=isOnList(out,*it);
+		
+		//cout << "flag " << flag << endl;
+		
+		if(flag==false){
+			out.push_back(*it);
+		}
+	}
+	cout << "Lista original:" << endl;
+	cout << endl;
+	
+	for(it=L.begin();it!=L.end();++it){
+		cout << *it << endl;
+	}
+	
+	cout << "\nLista modificada:" << endl;
+	cout << endl;
+
+	for(it=out.begin();it!=out.end();++it){
+		cout << *it << endl;
+	}
+}
 
 int main(){
 	list<int> L,L2,L3,L4;
@@ -105,4 +151,6 @@ int main(){
 	cout<<sequentialSearch(L4,0)<<endl;
 	cout<<sequentialSearch(L4,9)<<endl;
 	cout<<sequentialSearch(L4,5)<<endl;
+	
+	removeDup(L4);
 }
