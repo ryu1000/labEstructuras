@@ -19,17 +19,19 @@ void multibase(T n, T b){
 		n = quo;
 	} while (quo != 0);
 	
-	cout << st.size() << endl;
+	//cout << st.size() << endl;
 	
-	for (int i = 0; i <= (int)st.size(); ++i){
+	while (!st.empty()){
 		cout << st.top();
 		st.pop();
 	}
 	
+	cout << endl;
 	
 }
 
 int main(){
 	multibase(75,8);
+	multibase(75,2);
 	return 0; 
 }
