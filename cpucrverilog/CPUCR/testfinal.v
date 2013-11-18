@@ -1,4 +1,4 @@
-// -- Sistema CPUCR
+       // -- Sistema CPUCR
 // -- IE-503 Estructura de computadores digitales
 
 `timescale 1ns / 1ps

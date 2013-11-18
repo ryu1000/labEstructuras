@@ -97,6 +97,7 @@ module reg_CB(CLK, EstPresente,RPS,CB,CM,BD,ProxEst,INTOK,SDMA);
 			if(!SDMA&&((ProxEst==Estado_15)||(ProxEst==Estado_16))) CM<=1'bz;
 			else if (!RPS) CM<=1'b0;
 			else if ((ProxEst==Estado_1)&&(EstPresente==Estado_16)) CM<=1'b1;
+			else if (ProxEst==Estado_30) CM<=CM; //Se agrego esta linea para que CM se detenga en HLT
 			else CM<=~(CM);
 			
 			
