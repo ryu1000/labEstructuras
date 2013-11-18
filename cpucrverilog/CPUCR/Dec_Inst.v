@@ -2,8 +2,8 @@
 ////////////Códigos de las Instrucciones en 8 bits////////////
 //Instrucciones con direccionamiento INMEDIATO
  //Yalas
- parameter LDAinm = 8'b00000000,
- ADDinm = 8'b00100000,
+ parameter LDAinm = 8'b00000000, //Sí, funciona.
+ ADDinm = 8'b00100000, //
  SUBinm = 8'b00110000,
  ANDinm = 8'b01000000,
  ORAinm = 8'b01010000,

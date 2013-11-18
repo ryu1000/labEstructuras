@@ -18,8 +18,10 @@ module memoria(Direccion,Datos,LE);
   
   initial
   begin
-    M[0]=CLA; //irle agregando al arreglo M el contenido de la memoria
-    M[1]=HLT;
+    M[0]=LDAinm; //irle agregando al arreglo M el contenido de la memoria
+    M[1]=8'h09;
+    M[2]=HLT;
+
   end
   
 endmodule

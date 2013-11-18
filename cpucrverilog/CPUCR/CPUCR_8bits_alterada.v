@@ -395,7 +395,7 @@ module reg_PC(CLK,RI,RPS,EstPresente,PC,BUSDAT,S,RDR,P,LE,PB,SDMA,INT);
 		    		case(RI)
 				 CPA,LDAinm,ADDinm,TAP,TPA,CLA,INA,DCA,SUBinm,ANDinm,ORAinm,INP,OUT: begin
 				 								PC<=PC;
-												RDR<=RDR;
+												RDR<=RDR+1; // le agregamos +1
 				 							     end
 				 ROL,ROR,BCC,BCS,CLC,SEC,SEI,CLI,NOP,BNE,BEQ,BMI,BPL,STA,LDA,AND,SUB,ORA,ADD,JMP,BVS,BVC: begin
 				 						    PC<=PC;
@@ -937,7 +937,7 @@ module reg_HLT(EstPresente,RPS,CLK,HALT);
 	always@(negedge CLK) begin
 		if(!RPS) HALT<=1'b0;
 		 else begin
-	     		 case(EstPresente)
+	     		case(EstPresente)
 	     	 	Estado_30:HALT<=1'b1;
 			Estado_31:HALT<=~HALT;
 	         	default: HALT<=1'b0;
