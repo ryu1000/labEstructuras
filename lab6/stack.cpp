@@ -31,7 +31,14 @@ void multibase(T n, T b){
 }
 
 int main(){
+	multibase(75,9);
 	multibase(75,8);
+	multibase(75,7);
+	multibase(75,6);
+	multibase(75,5);
+	multibase(75,4);
+	multibase(75,3);
 	multibase(75,2);
+	multibase(64,2);
 	return 0; 
 }
