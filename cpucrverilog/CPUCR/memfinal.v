@@ -18,9 +18,14 @@ module memoria(Direccion,Datos,LE);
   
   initial
   begin
-    M[0]=ORAinm; //irle agregando al arreglo M el contenido de la memoria
-    M[1]=8'h00; 
-    M[2]=HLT;
+    M[0]=CLA; //irle agregando al arreglo M el contenido de la memoria
+    M[1]=STA;
+    M[2]=8'h00; 
+    M[3]=8'h10;
+    M[4]=LDA;
+    M[5]=8'h00;
+    M[6]=8'h10;
+    M[7]=HLT;
 
   end
   

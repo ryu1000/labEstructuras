@@ -3,13 +3,13 @@
 //Instrucciones con direccionamiento INMEDIATO
  //Yalas
  parameter LDAinm = 8'b00000000, //Sí, funciona.
- ADDinm = 8'b00100000, //Sí, funciona.
- SUBinm = 8'b00110000, //Sí, funciona.
- ANDinm = 8'b01000000, //Sí, funciona.
- ORAinm = 8'b01010000, //Sí, funciona.
+ ADDinm = 8'b00100000, //
+ SUBinm = 8'b00110000, //
+ ANDinm = 8'b01000000, //
+ ORAinm = 8'b01010000, //
 //Instrucciones con direccionamiento ABSOLUTO
 //Falta JSR
- LDA = 8'b00000001, //
+ LDA = 8'b00000001, //No funco pero ahora si 
  STA = 8'b00010001,
  ADD = 8'b00100001,
  SUB = 8'b00110001,

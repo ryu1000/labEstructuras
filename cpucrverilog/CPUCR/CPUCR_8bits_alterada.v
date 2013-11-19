@@ -395,12 +395,12 @@ module reg_PC(CLK,RI,RPS,EstPresente,PC,BUSDAT,S,RDR,P,LE,PB,SDMA,INT);
 		    Estado_2: begin
 		    		case(RI)
 				 CPA,LDAinm,ADDinm,TAP,TPA,CLA,INA,DCA,SUBinm,ANDinm,ORAinm,INP,OUT: begin
-				 								PC<=PC;
+				 								PC<=PC+1; //Le agregamos +1
 												RDR<=RDR+1; // le agregamos +1
 				 							     end
 				 ROL,ROR,BCC,BCS,CLC,SEC,SEI,CLI,NOP,BNE,BEQ,BMI,BPL,STA,LDA,AND,SUB,ORA,ADD,JMP,BVS,BVC: begin
-				 						    PC<=PC;
-										    RDR<=RDR;
+				 						    PC<=PC+1; ///Le agregamos un +1
+										    RDR<=RDR+1; //Le agregamos un +1
 									          end
 				PHA,PHS: begin
 				     	PC<=PC;

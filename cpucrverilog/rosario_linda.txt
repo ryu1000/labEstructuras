@@ -1,1 +1,193 @@
-jose es un rico
+En cualquier programa que se fuese a ejecutar el CM se no se detenía, incluso si la instrucción fuese HLT (HAHAHA
+creo que esto debería ir en la parte de HLT, pero no importa)
+
+Se corrigió así:
+
+En el module reg_CB
+
+always @(negedge CLK) begin  
+			if(!SDMA&&((ProxEst==Estado_15)||(ProxEst==Estado_16))) CM<=1'bz;
+			else if (!RPS) CM<=1'b0;
+			else if ((ProxEst==Estado_1)&&(EstPresente==Estado_16)) CM<=1'b1;
+			else if (ProxEst==Estado_30) CM<=CM; //Se agrego esta linea para que CM se detenga en HLT
+			else CM<=~(CM);
+			
+			
+			if ((ProxEst==Estado_15)||(ProxEst==Estado_16)) BD<=1'b1;
+			else BD<=1'b0;
+			if ((EstPresente==Estado_21)||(EstPresente==Estado_22)||(EstPresente==Estado_23)||(EstPresente==Estado_24)) INTOK<=1'b1;
+			else INTOK<=1'b0;
+
+		end
+
+/////////////////////-----INICIO CLA---------////////////////////////
+
+*******Programa en ensamblador*************
+@0000 CLA
+@0001 HLT
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+(module reg_PC)
+
+    Estado_2: begin
+		    		case(RI)
+				 CPA,LDAinm,ADDinm,TAP,TPA,CLA,INA,DCA,SUBinm,ANDinm,ORAinm,INP,OUT: begin
+				 								PC<=PC;
+												RDR<=RDR+1; //// le agregamos +1
+				 							     end
+				 ROL,ROR,BCC,BCS,CLC,SEC,SEI,CLI,NOP,BNE,BEQ,BMI,BPL,STA,LDA,AND,SUB,ORA,ADD,JMP,BVS,BVC: begin
+				 						    PC<=PC;
+										    RDR<=RDR;
+									          end
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN CLA-------////////////////////////////
+
+/////////////////////-----INICIO LDAinm---------////////////////////////
+
+*******Programa en ensamblador*************
+@0000 LDA #@06
+@0001 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No fue necesario...
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN LDAinm-------////////////////////////////
+
+/////////////////////-----INICIO ADDinm---------////////////////////////
+
+*******Programa en ensamblador*************
+ADD #@06
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No fue necesario...
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN ADDinm-------////////////////////////////
+
+/////////////////////-----INICIO SUBinm---------////////////////////////
+
+*******Programa en ensamblador*************
+SUB #@06
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No fue necesario...
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN SUBinm-------////////////////////////////
+
+/////////////////////-----INICIO ANDinm---------////////////////////////
+
+*******Programa en ensamblador*************
+AND #@00
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No fue necesario...
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN ANDinm-------////////////////////////////
+
+/////////////////////-----INICIO ORAinm---------////////////////////////
+
+*******Programa en ensamblador*************
+ORA #@00
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN ORAinm-------////////////////////////////
+
+/////////////////////-----INICIO STA---------////////////////////////
+
+*******Programa en ensamblador*************
+@0000 CLA
+      STA @1000
+      HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+(module reg_PC)
+Estado_2: begin
+		    		case(RI)
+				 CPA,LDAinm,ADDinm,TAP,TPA,CLA,INA,DCA,SUBinm,ANDinm,ORAinm,INP,OUT: begin
+				 								PC<=PC+1; //
+												RDR<=RDR+1; // le agregamos +1
+				 							     end
+				 ROL,ROR,BCC,BCS,CLC,SEC,SEI,CLI,NOP,BNE,BEQ,BMI,BPL,STA,LDA,AND,SUB,ORA,ADD,JMP,BVS,BVC: begin
+				 						    PC<=PC+1; ///Le agregamos un +1
+										    RDR<=RDR+1; //Le agregamos un +1
+									          end
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN STA-------////////////////////////////
+
+
+
+/////////////////////-----INICIO LDA---------////////////////////////
+
+*******Programa en ensamblador*************
+En la posicion 1000 se cargo previamente un FF en hexadecimal
+@0000 LDA $1000
+@0001 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+(En el modulo reg_PC)
+
+Estado_2: begin
+		    		case(RI)
+				 CPA,LDAinm,ADDinm,TAP,TPA,CLA,INA,DCA,SUBinm,ANDinm,ORAinm,INP,OUT: begin
+				 								PC<=PC+1; //Le agregamos +1
+												RDR<=RDR+1; // le agregamos +1
+				 							     end
+				 ROL,ROR,BCC,BCS,CLC,SEC,SEI,CLI,NOP,BNE,BEQ,BMI,BPL,STA,LDA,AND,SUB,ORA,ADD,JMP,BVS,BVC: begin
+				 						    PC<=PC+1; ///Le agregamos un +1
+										    RDR<=RDR+1; //Le agregamos un +1
+									          end
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN LDA-------////////////////////////////
+/////////////////////-----INICIO CLA---------////////////////////////
+
+*******Programa en ensamblador*************
+CLA
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN CLA-------////////////////////////////
+/////////////////////-----INICIO CLA---------////////////////////////
+
+*******Programa en ensamblador*************
+CLA
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN CLA-------////////////////////////////
+/////////////////////-----INICIO CLA---------////////////////////////
+
+*******Programa en ensamblador*************
+CLA
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN CLA-------////////////////////////////
+/////////////////////-----INICIO CLA---------////////////////////////
+
+*******Programa en ensamblador*************
+CLA
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN CLA-------////////////////////////////
+/////////////////////-----INICIO CLA---------////////////////////////
+
+*******Programa en ensamblador*************
+CLA
+HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN CLA-------////////////////////////////
+
