@@ -19,7 +19,7 @@
  JSR = 8'b01110001, // Siii :D funciona
 //Instrucciones con direccionamiento RELATIVO
 //Falta BVS y BVC
- BEQ = 8'b00000010,
+ BEQ = 8'b00000010, //
  BNE = 8'b00010010,
  BCS = 8'b00100010,
  BCC = 8'b00110010,
