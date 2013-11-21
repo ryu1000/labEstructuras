@@ -16,7 +16,7 @@
  AND = 8'b01000001, // Si funciona ^^
  ORA = 8'b01010001, // Si funciona ^^
  JMP = 8'b01100001, // Si funciona ^^
- JSR = 8'b01110001,
+ JSR = 8'b01110001, // Siii :D funciona
 //Instrucciones con direccionamiento RELATIVO
 //Falta BVS y BVC
  BEQ = 8'b00000010,
@@ -52,11 +52,11 @@
  ROL = 8'b01000101,
  ROR = 8'b01010101,
  PLA = 8'b01100101,
- PHA = 8'b01110101,
+ PHA = 8'b01110101, // Siii :D funciona
 //Instrucciones con direccionamiento CONTROL
 //Falta RTI, RTS, PHS
  TPA = 8'b00000110,
- TAP = 8'b00010110,
+ TAP = 8'b00010110, // Siii :D funciona
  RTI = 8'b00100110,
  RTS = 8'b00110110,
  HLT = 8'b01000110,
