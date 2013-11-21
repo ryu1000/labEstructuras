@@ -11,11 +11,11 @@
 //Falta JSR
  LDA = 8'b00000001, //No funco pero ahora si 
  STA = 8'b00010001, //No funco pero ahora si
- ADD = 8'b00100001,
- SUB = 8'b00110001,
- AND = 8'b01000001,
- ORA = 8'b01010001,
- JMP = 8'b01100001,
+ ADD = 8'b00100001, //Si funca :D
+ SUB = 8'b00110001, //Si funca :D :D
+ AND = 8'b01000001, // Si funciona ^^
+ ORA = 8'b01010001, // Si funciona ^^
+ JMP = 8'b01100001, // Si funciona ^^
  JSR = 8'b01110001,
 //Instrucciones con direccionamiento RELATIVO
 //Falta BVS y BVC

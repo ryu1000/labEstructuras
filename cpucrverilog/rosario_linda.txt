@@ -241,6 +241,113 @@ Estado_2: begin
 
 
 
+/////////////////////-----INICIO ADD---------////////////////////////
+
+*******Programa en ensamblador*************
+Previamente se escribió en la pocisión $2000 de la memoria un $02
+
+$0000 LDA #$06
+$0001 ADD $2000
+$0002 STA $1000
+$0003 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+No fue necesario arreglar el codigo
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN ADD-------////////////////////////////
+
+
+
+/////////////////////-----INICIO SUB---------////////////////////////
+
+*******Programa en ensamblador*************
+Previamente se escribió en la pocisión $2000 de la memoria un $02
+
+$0000 LDA #$06
+$0001 SUB $2000
+$0002 STA $1000
+$0003 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+No fue necesario arreglar el codigo
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN SUB-------////////////////////////////
+
+
+
+/////////////////////-----INICIO AND---------////////////////////////
+
+*******Programa en ensamblador*************
+Previamente se escribió en la pocisión $2000 de la memoria un $05
+
+$0000 LDA #$06
+$0001 AND $2000
+$0002 STA $1000
+$0003 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+No fue necesario arreglar el codigo
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN AND-------////////////////////////////
+
+
+
+/////////////////////-----INICIO ORA--------////////////////////////
+
+*******Programa en ensamblador*************
+Previamente se escribió en la pocisión $2000 de la memoria un $05
+
+$0000 LDA #$06
+$0001 ORA $2000
+$0002 STA $1000
+$0003 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+No fue necesario arreglar el codigo
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN ORA-------////////////////////////////
+
+/////////////////////-----INICIO JMP--------////////////////////////
+
+*******Programa en ensamblador*************
+Previamente se escribió en la pocisión $2000 de la memoria un $05
+
+$0000 LDA #$06
+$0001 ORA $2000
+$0002 JMP $0004
+$0003 STA $1000
+$0004 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+No fue necesario arreglar el código
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN JMP-------////////////////////////////
+
 /////////////////////-----INICIO Instruccion---------////////////////////////
 
 *******Programa en ensamblador*************
@@ -265,5 +372,6 @@ $0006
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
 
 ///////////////////////-----FIN Instruccion-------////////////////////////////
+
 
 
