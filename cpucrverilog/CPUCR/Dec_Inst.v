@@ -3,14 +3,14 @@
 //Instrucciones con direccionamiento INMEDIATO
  //Yalas
  parameter LDAinm = 8'b00000000, //Sí, funciona.
- ADDinm = 8'b00100000, //
- SUBinm = 8'b00110000, //
- ANDinm = 8'b01000000, //
- ORAinm = 8'b01010000, //
+ ADDinm = 8'b00100000, // Si funca
+ SUBinm = 8'b00110000, // No funco pero ya si
+ ANDinm = 8'b01000000, // Si funca
+ ORAinm = 8'b01010000, // Si funca
 //Instrucciones con direccionamiento ABSOLUTO
 //Falta JSR
  LDA = 8'b00000001, //No funco pero ahora si 
- STA = 8'b00010001,
+ STA = 8'b00010001, //No funco pero ahora si
  ADD = 8'b00100001,
  SUB = 8'b00110001,
  AND = 8'b01000001,
@@ -45,7 +45,7 @@
  CLI = 8'b01010100,
 //Instrucciones con direccionamiento ACUMULADOR
 //Falta PLA
- CLA = 8'b00000101,
+ CLA = 8'b00000101, //No funco pero ahora si
  CPA = 8'b00010101,
  INA = 8'b00100101,
  DCA = 8'b00110101,

@@ -77,7 +77,9 @@ module reg_Est_Presente(CLK,EstPresente,ProxEst,RPS);
 			else EstPresente<=8'b0;
 		end
 endmodule
-	
+
+//*******************Registro Ciclo de Busqueda****************************
+
 module reg_CB(CLK, EstPresente,RPS,CB,CM,BD,ProxEst,INTOK,SDMA);
 	input CLK,RPS,SDMA;
 	input [`MSB8:0] EstPresente,ProxEst;
@@ -298,7 +300,7 @@ module acumulador(CLK,RI,EstPresente,A,BUSDAT,RPS,S,P,LE);
 			    	      case(RI)
 			    	        LDAinm: A<=BUSDAT;
 					ADDinm: {BC,A}<=A+BUSDAT;
-					SUBinm: {BC,A}<=A+BUSDAT;
+					SUBinm: {BC,A}<=A-BUSDAT; // cambiar operador por -
 					ANDinm: A<=A&BUSDAT;
 					ORAinm: A<=A|BUSDAT;
 					PLA: A<=BUSDAT;
