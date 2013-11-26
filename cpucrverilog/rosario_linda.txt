@@ -386,82 +386,63 @@ No fue necesario arreglar el código
 ///////////////////////-----FIN JSR-------////////////////////////////
 
 
-/////////////////////-----INICIO Instruccion---------////////////////////////
+/////////////////////-----INICIO RTS---------////////////////////////
 
 *******Programa en ensamblador*************
-$0000 
-$0001 
-$0002 
-$0003
-$0004
-$0005
-$0006
+$0000 LDA #$02
+$0001 TAP
+$0002 RTS
+$2000 HLT
+$FF00 $20
+$FF01 $00
 
 ******Fin del programa en ensamblador******
 
-(En el modulo xxx)
-
->>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
-
-
 >>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
-
+No fue necesario arreglar el codigo
 
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
 
-///////////////////////-----FIN Instruccion-------////////////////////////////
+///////////////////////-----FIN RTS-------////////////////////////////
 
 
-/////////////////////-----INICIO Instruccion---------////////////////////////
+/////////////////////-----INICIO PLS---------////////////////////////
 
 *******Programa en ensamblador*************
-$0000 
-$0001 
-$0002 
-$0003
-$0004
-$0005
-$0006
+$0000 LDA #$01
+$0001 TAP
+$0002 PLS
+$0003 HLT
+$FF00 $2F 
 
 ******Fin del programa en ensamblador******
 
-(En el modulo xxx)
-
->>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
-
-
 >>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
-
+No fue necesario arreglar el codigo
 
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
 
-///////////////////////-----FIN Instruccion-------////////////////////////////
+///////////////////////-----FIN PLS-------////////////////////////////
 
 
-/////////////////////-----INICIO Instruccion---------////////////////////////
+/////////////////////-----INICIO PHS---------////////////////////////
 
 *******Programa en ensamblador*************
-$0000 
-$0001 
-$0002 
-$0003
-$0004
-$0005
-$0006
+$0000 LDA #$01
+$0001 TAP
+$0002 PLS
+$0003 PHS
+$0004 HLT
+$FF00 $2F
 
 ******Fin del programa en ensamblador******
 
-(En el modulo xxx)
-
->>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
-
-
 >>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
-
+No fue necesario arreglar el codigo
 
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
 
-///////////////////////-----FIN Instruccion-------////////////////////////////
+///////////////////////-----FIN PHS-------////////////////////////////
 
 
 /////////////////////-----INICIO Instruccion---------////////////////////////

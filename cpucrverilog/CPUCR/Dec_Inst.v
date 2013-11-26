@@ -57,15 +57,15 @@
 //Falta RTI, RTS, PHS
  TPA = 8'b00000110,
  TAP = 8'b00010110, // Siii :D funciona
- RTI = 8'b00100110,
- RTS = 8'b00110110,
- HLT = 8'b01000110,
+ RTI = 8'b00100110, // No hay que probar esta !!
+ RTS = 8'b00110110, // Funciona
+ HLT = 8'b01000110, 
  NOP = 8'b01010110,
- PLS = 8'b01100110,
- PHS = 8'b01110110,
+ PLS = 8'b01100110, // Si funciona
+ PHS = 8'b01110110, // Si funciona
 //Instrucciones para ENTRADA/SALIDA
 //Nolas
- INP = 8'b00000111,
+ INP = 8'b00000111, 
  OUT = 8'b00010111;
 
 `define ActualizarNZ ((RI == ADD) || (RI == ADDinm) || (RI == ADDind) || (RI == AND) || (RI == ANDinm) || (RI == ANDind) || (RI == CLA) || (RI == CPA) || (RI == DCA) || (RI == INA) || (RI == INP) || (RI == LDA) || (RI == LDAinm) || (RI == LDAind) || (RI == PLA) || (RI == ORA) || (RI == ORAinm) || (RI == ORAind) || (RI == ROL) || (RI == ROR) || (RI == SUB) || (RI == SUBinm) || (RI == SUBind) || (RI == TPA)) 
