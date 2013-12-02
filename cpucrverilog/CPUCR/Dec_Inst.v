@@ -19,13 +19,13 @@
  JSR = 8'b01110001, // Siii :D funciona
 //Instrucciones con direccionamiento RELATIVO
 //Falta BVS y BVC
- BEQ = 8'b00000010, //
- BNE = 8'b00010010,
- BCS = 8'b00100010,
- BCC = 8'b00110010,
- BMI = 8'b01000010,
- BPL = 8'b01010010,
- BVS = 8'b01100010,
+ BEQ = 8'b00000010, //Sip ^^
+ BNE = 8'b00010010, //Siip
+ BCS = 8'b00100010, //Sip!
+ BCC = 8'b00110010, //Siempre saltaba... pero ya lo arreglé :D
+ BMI = 8'b01000010, //Esta no hay que probarla... verdad? jaja.
+ BPL = 8'b01010010, //Siip!
+ BVS = 8'b01100010, 
  BVC = 8'b01110010,
 //Instrucciones con direccionamiento INDIRECTO
 //Nolas
@@ -40,7 +40,7 @@
 //Instrucciones con direccionamiento IMPLICITO
 //Yalas
  SEC = 8'b00100100,
- CLC = 8'b00110100,
+ CLC = 8'b00110100, //Sí funciona n.n(?)
  SEI = 8'b01000100,
  CLI = 8'b01010100,
 //Instrucciones con direccionamiento ACUMULADOR
