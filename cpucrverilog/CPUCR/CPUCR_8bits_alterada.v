@@ -272,7 +272,7 @@ module acumulador(CLK,RI,EstPresente,A,BUSDAT,RPS,S,P,LE);
 				      end
 			    Estado_2: case(RI)
 			    	      	CLA: A<=8'b0;
-					INA: {BC,A}<=A+2;
+					INA: {BC,A}<=A+1;
 					DCA: {BC,A}<=A-1;
 					ROL:begin
 					     BC<=A[7];

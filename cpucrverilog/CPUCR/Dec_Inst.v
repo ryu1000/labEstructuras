@@ -25,11 +25,11 @@
  BCC = 8'b00110010, //Siempre saltaba... pero ya lo arreglé :D
  BMI = 8'b01000010, //Esta no hay que probarla... verdad? jaja.
  BPL = 8'b01010010, //Siip!
- BVS = 8'b01100010, 
- BVC = 8'b01110010,
+ BVS = 8'b01100010, //sisisisi.
+ BVC = 8'b01110010, //yeei :D no más saltos(?)
 //Instrucciones con direccionamiento INDIRECTO
 //Nolas
- LDAind = 8'b00000011,
+ LDAind = 8'b00000011, 
  STAind = 8'b00010011,
  ADDind = 8'b00100011,
  SUBind = 8'b00110011,
@@ -39,7 +39,7 @@
  JMPind = 8'b01100011,
 //Instrucciones con direccionamiento IMPLICITO
 //Yalas
- SEC = 8'b00100100,
+ SEC = 8'b00100100, 
  CLC = 8'b00110100, //Sí funciona n.n(?)
  SEI = 8'b01000100,
  CLI = 8'b01010100,
@@ -47,10 +47,10 @@
 //Falta PLA
  CLA = 8'b00000101, //No funco pero ahora si
  CPA = 8'b00010101,
- INA = 8'b00100101,
- DCA = 8'b00110101,
- ROL = 8'b01000101,
- ROR = 8'b01010101,
+ INA = 8'b00100101, //No funcionó pero ahora sí
+ DCA = 8'b00110101, //Si funciona ^^
+ ROL = 8'b01000101, //Sip!
+ ROR = 8'b01010101, //Sip!
  PLA = 8'b01100101,
  PHA = 8'b01110101, // Siii :D funciona
 //Instrucciones con direccionamiento CONTROL
@@ -60,7 +60,7 @@
  RTI = 8'b00100110, // No hay que probar esta !!
  RTS = 8'b00110110, // Funciona
  HLT = 8'b01000110, 
- NOP = 8'b01010110,
+ NOP = 8'b01010110, //Funciona!
  PLS = 8'b01100110, // Si funciona
  PHS = 8'b01110110, // Si funciona
 //Instrucciones para ENTRADA/SALIDA
