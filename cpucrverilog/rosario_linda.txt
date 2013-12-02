@@ -445,6 +445,326 @@ No fue necesario arreglar el codigo
 ///////////////////////-----FIN PHS-------////////////////////////////
 
 
+/////////////////////-----INICIO BEQ---------////////////////////////
+    M[0]=CLA;
+    M[1]=LDA;
+    M[2]=8'h00;
+    M[3]=8'h30;
+    M[12288]=8'h0;
+    M[4]=BEQ;
+    M[5]=8'h1; //<---numero de posiciones que tiene que saltar
+    M[6]=INA; //<--posicion 0
+    M[7]=HLT; //<-- posicion 1
+
+El salto solo está correcto si el salto empieza a contar en 0 después
+de decirle el número de lugares... Yo creo que SI es así, pero agradecería
+una segunda opinión(?)
+*******Programa en ensamblador*************
+Salto:
+Se guardó previamente un cero en la posición $3000
+$0000 CLA
+$0001 LDA $3000
+$0002 BEQ $0004
+$0003 INA
+$0004 HLT
+
+No salto:
+Se guardó previamente un uno en la posición $3000
+$0000 CLA
+$0001 LDA $3000
+$0002 BEQ $0004
+$0003 INA
+$0004 HLT
+
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
+El código estaba correcto~
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN BEQ-------////////////////////////////
+
+
+/////////////////////-----INICIO BNE---------////////////////////////
+
+*******Programa en ensamblador*************
+Cuando salta:
+Se guardó previamente un uno en la posición $3000
+$0000 CLA
+$0001 LDA $3000
+$0002 BNE $0004
+$0003 INA
+$0004 HLT
+
+Cuando no salta:
+Se guardó previamente un cero en la posición $3000
+$0000 CLA
+$0001 LDA $3000
+$0002 BNE $0004
+$0003 INA
+$0004 HLT
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No fue necesario arreglar el codigo
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN BNE-------////////////////////////////
+
+
+/////////////////////-----INICIO CLC---------////////////////////////
+
+(Creo que la imagen es suficiente prueba(?) Metí en la imagen
+la señal S... Pero el cambio de status ocurre a la mitad de la
+otra instrucción.. Yo creo que sí es así pero no estoy segura así
+que mi novio me corregirá luego(?) :P)
+
+Y además... puedo hacer eso? hahaha porque sino pruebo así las demás 
+instrucciones de ese grupo pero sino... uhm, mejor me corriges luego(?)
+*******Programa en ensamblador*************
+$0000 CLC
+$0001 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN CLC-------////////////////////////////
+
+
+/////////////////////-----INICIO BCS---------////////////////////////
+
+*******Programa en ensamblador*************
+Cuando saltó:
+$0000 CLC
+$0001 LDA #$FF
+$0002 ADD #$01
+$0003 BCS $0005
+$0004 STA $1000
+$0005 HLT
+
+Cuando no saltó:
+$0000 CLC
+$0001 LDA #$FE
+$0002 ADD #$01
+$0003 BCS $0005
+$0004 STA $1000
+$0005 HLT
+******Fin del programa en ensamblador*******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN BCS-------////////////////////////////
+
+
+
+/////////////////////-----INICIO BCC---------////////////////////////
+
+*******Programa en ensamblador*************
+Cuando saltó:
+$0000 CLC
+$0001 LDA #$FE
+$0002 ADD #$01
+$0003 BCC $0005
+$0004 STA $1000
+$0005 HLT
+
+Cuando no saltó:
+$0000 CLC
+$0001 LDA #$FF
+$0002 ADD #$01
+$0003 BCC $0005
+$0004 STA $1000
+$0005 HLT
+******Fin del programa en ensamblador******
+
+(En el modulo reg_PC)
+
+>>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
+BCC: begin
+ 
+						PC<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
+					        RDR<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
+
+				     end
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+BCC: begin
+		case(S[0])
+				1'b1: begin
+						PC<=PC;
+						RDR<=RDR+16'b1;
+				end
+				1'b0: begin
+						PC<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
+
+						RDR<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
+				end
+		endcase
+end
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN BCC-------////////////////////////////
+
+/////////////////////-----INICIO BPL---------////////////////////////
+
+*******Programa en ensamblador*************
+Cuando saltó:
+$0000 LDA #$00
+$0001 SUB #$01
+$0002 BPL $0004
+$0003 STA $1000
+$0004 HLT
+
+Cuando no saltó:
+$0000 LDA #$01
+$0001 SUB #$01
+$0002 BPL $0004
+$0003 STA $1000
+$0004 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN BPL-------////////////////////////////
+
+
+/////////////////////-----INICIO BVS---------////////////////////////
+
+*******Programa en ensamblador*************
+Cuando sí salta:
+$0000 LDA #$80
+$0001 ADD #$81
+$0002 BVS $0004
+$0003 STA $1000
+$0004 HLT
+
+Cuando no salta:
+$0000 LDA #$80
+$0001 ADD #$08
+$0002 BVS $0004
+$0003 STA $1000
+$0004 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN BVS-------////////////////////////////
+
+
+/////////////////////-----INICIO BVC---------////////////////////////
+
+*******Programa en ensamblador*************
+Cuando sí salta:
+$0000 LDA #$80
+$0001 ADD #$08
+$0002 BVC $0004
+$0003 STA $1000
+$0004 HLT
+
+Cuando no salta:
+$0000 LDA #$80
+$0001 ADD #$81
+$0002 BVC $0004
+$0003 STA $1000
+$0004 HLT
+
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que corregir el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN BVC-------////////////////////////////
+
+
+/////////////////////-----INICIO NOP---------////////////////////////
+
+*******Programa en ensamblador*************
+$0000 LDA #01
+$0001 NOP
+$0002 STA $0110
+$0003 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN NOP-------////////////////////////////
+
+
+/////////////////////-----INICIO INA---------////////////////////////
+*******Programa en ensamblador*************
+$0000 LDA #$01
+$0001 INA
+$0002 STA #0110
+$0003 HLT
+******Fin del programa en ensamblador******
+
+(En el modulo acumulador)
+
+>>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
+Estado_2: case(RI)
+			    	      	CLA: A<=8'b0;
+					INA: {BC,A}<=A+2;
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+Estado_2: case(RI)
+			    	      	CLA: A<=8'b0;
+					INA: {BC,A}<=A+1;
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN INA-------////////////////////////////
+
+
+/////////////////////-----INICIO DCA---------////////////////////////
+
+*******Programa en ensamblador*************
+$0000 LDA #$01
+$0001 DCA
+$0002 STA #0110
+$0003 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN DCA-------////////////////////////////
+
+
+/////////////////////-----INICIO ROL---------////////////////////////
+*******Programa en ensamblador*************
+$0000 CLA
+$0001 LDA #$05
+$0002 ROL
+$0003 STA $1000
+$0004 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo necesidad de arreglarlo
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN ROL-------////////////////////////////
+
+
+/////////////////////-----INICIO ROR---------////////////////////////
+*******Programa en ensamblador*************
+$0000 CLA
+$0001 LDA #$06
+$0002 ROR
+$0003 STA $1000
+$0004 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo necesidad de arreglarlo
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN ROR-------////////////////////////////
+
+
 /////////////////////-----INICIO Instruccion---------////////////////////////
 
 *******Programa en ensamblador*************
@@ -471,6 +791,34 @@ $0006
 ///////////////////////-----FIN Instruccion-------////////////////////////////
 
 
+
+/////////////////////-----INICIO Instruccion---------////////////////////////
+
+*******Programa en ensamblador*************
+$0000 
+$0001 
+$0002 
+$0003
+$0004
+$0005
+$0006
+
+******Fin del programa en ensamblador******
+
+(En el modulo xxx)
+
+>>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
+
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN Instruccion-------////////////////////////////
+
+
+
 /////////////////////-----INICIO Instruccion---------////////////////////////
 
 *******Programa en ensamblador*************
@@ -497,6 +845,7 @@ $0006
 ///////////////////////-----FIN Instruccion-------////////////////////////////
 
 
+
 /////////////////////-----INICIO Instruccion---------////////////////////////
 
 *******Programa en ensamblador*************
@@ -521,6 +870,61 @@ $0006
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
 
 ///////////////////////-----FIN Instruccion-------////////////////////////////
+
+
+
+/////////////////////-----INICIO Instruccion---------////////////////////////
+
+*******Programa en ensamblador*************
+$0000 
+$0001 
+$0002 
+$0003
+$0004
+$0005
+$0006
+
+******Fin del programa en ensamblador******
+
+(En el modulo xxx)
+
+>>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
+
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN Instruccion-------////////////////////////////
+
+
+
+/////////////////////-----INICIO Instruccion---------////////////////////////
+
+*******Programa en ensamblador*************
+$0000 
+$0001 
+$0002 
+$0003
+$0004
+$0005
+$0006
+
+******Fin del programa en ensamblador******
+
+(En el modulo xxx)
+
+>>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
+
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN Instruccion-------////////////////////////////
+
 
 
 /////////////////////-----INICIO Instruccion---------////////////////////////
