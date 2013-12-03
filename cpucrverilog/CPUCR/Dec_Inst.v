@@ -39,9 +39,9 @@
  JMPind = 8'b01100011,
 //Instrucciones con direccionamiento IMPLICITO
 //Yalas
- SEC = 8'b00100100, 
- CLC = 8'b00110100, //Sí funciona n.n(?)
- SEI = 8'b01000100,
+ SEC = 8'b00100100, //Sip 
+ CLC = 8'b00110100, //Sí funciona n.n
+ SEI = 8'b01000100, //
  CLI = 8'b01010100,
 //Instrucciones con direccionamiento ACUMULADOR
 //Falta PLA

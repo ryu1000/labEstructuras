@@ -513,16 +513,12 @@ No fue necesario arreglar el codigo
 
 /////////////////////-----INICIO CLC---------////////////////////////
 
-(Creo que la imagen es suficiente prueba(?) Metí en la imagen
-la señal S... Pero el cambio de status ocurre a la mitad de la
-otra instrucción.. Yo creo que sí es así pero no estoy segura así
-que mi novio me corregirá luego(?) :P)
-
-Y además... puedo hacer eso? hahaha porque sino pruebo así las demás 
-instrucciones de ese grupo pero sino... uhm, mejor me corriges luego(?)
 *******Programa en ensamblador*************
-$0000 CLC
-$0001 HLT
+$0000 LDA #$00
+$0001 TAP
+$0002 CLC
+$0003 PHS
+$0004 HLT
 
 ******Fin del programa en ensamblador******
 
@@ -764,6 +760,23 @@ No hubo necesidad de arreglarlo
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
 ///////////////////////-----FIN ROR-------////////////////////////////
 
+
+/////////////////////-----INICIO SEC---------////////////////////////
+
+*******Programa en ensamblador*************
+$0000 LDA #$00
+$0001 TAP
+$0002 SEC
+$0003 PHS
+$0004 HLT
+
+******Fin del programa en ensamblador******
+
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código.
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+
+///////////////////////-----FIN SEC-------////////////////////////////
 
 /////////////////////-----INICIO Instruccion---------////////////////////////
 
