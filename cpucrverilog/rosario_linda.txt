@@ -769,7 +769,6 @@ $0001 TAP
 $0002 SEC
 $0003 PHS
 $0004 HLT
-
 ******Fin del programa en ensamblador******
 
 >>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
@@ -778,32 +777,33 @@ No hubo que arreglar el código.
 
 ///////////////////////-----FIN SEC-------////////////////////////////
 
-/////////////////////-----INICIO Instruccion---------////////////////////////
+/////////////////////-----INICIO SEI---------////////////////////////
 
 *******Programa en ensamblador*************
-$0000 
-$0001 
-$0002 
-$0003
-$0004
-$0005
-$0006
-
+$0000 LDA #$00
+$0001 TAP
+$0002 SEI
+$0003 PHS
+$0004 HLT
 ******Fin del programa en ensamblador******
-
-(En el modulo xxx)
-
->>>>>>>>>>Codigo incorrecto en Verilog<<<<<<<<<<<<<<<<<<
-
-
 >>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
-
-
+No hubo que arreglar el código
 >>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN SEI-------////////////////////////////
 
-///////////////////////-----FIN Instruccion-------////////////////////////////
+/////////////////////-----INICIO CLI---------////////////////////////
 
-
+*******Programa en ensamblador*************
+$0000 LDA #$00
+$0001 TAP
+$0002 CLI
+$0003 PHS
+$0004 HLT
+******Fin del programa en ensamblador******
+>>>>>>>>>>Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+No hubo que arreglar el código
+>>>>>>>>>>FIN de Codigo arreglado en Verilog<<<<<<<<<<<<<<<<<<
+///////////////////////-----FIN CLI-------////////////////////////////
 
 /////////////////////-----INICIO Instruccion---------////////////////////////
 

@@ -41,8 +41,8 @@
 //Yalas
  SEC = 8'b00100100, //Sip 
  CLC = 8'b00110100, //Sí funciona n.n
- SEI = 8'b01000100, //
- CLI = 8'b01010100,
+ SEI = 8'b01000100, //Sip
+ CLI = 8'b01010100, //Sip
 //Instrucciones con direccionamiento ACUMULADOR
 //Falta PLA
  CLA = 8'b00000101, //No funco pero ahora si
