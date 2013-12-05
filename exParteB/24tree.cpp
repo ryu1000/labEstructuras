@@ -22,7 +22,7 @@ bool twofourTree<k,x>::search(k key){
 }
 
 template <class k,class x>
-bool recursive_search(k key,twofourNode<k,x>* child){
+bool twofourTree<k,x>::recursive_search(k key,twofourNode<k,x>* child){
 	for(int i = 0;i<(int)child->node_keys.size();++i){
 		if(child->node_keys.empty()==true){
 			return false;
@@ -37,3 +37,14 @@ bool recursive_search(k key,twofourNode<k,x>* child){
 		}
 	}
 }
+
+template <class k,class x>
+void twofourTree<k,x>::insert(k key,x value){
+	bool res;
+	res = search(key);
+	if(res == true){
+		cout << "attempt to duplicate key:" << endl;
+		cout << "value not inserted" << endl;
+	}
+	else{
+		

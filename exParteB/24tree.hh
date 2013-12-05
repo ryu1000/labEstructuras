@@ -23,4 +23,5 @@ class twofourTree{
 	private:
 		twofourNode<k,x>* root;
 		bool recursive_search(k,twofourNode<k,x>*);
+		void split(twofourNode<k,x>*);
 };
