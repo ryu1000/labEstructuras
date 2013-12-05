@@ -3,5 +3,11 @@ DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
-24tree.o : 24tree.hh 24tree.cpp
-	$(CC) $(CFLAGS) 24tree.cpp
+main.exe : main.o main.cpp
+	$(CC) $(LFLAGS) main.o -o main.exe
+
+main.o : 24tree.hpp main.cpp
+	$(CC) $(CFLAGS) main.cpp
+
+clean:
+	rm *.o *.exe
