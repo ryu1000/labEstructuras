@@ -272,7 +272,7 @@ module acumulador(CLK,RI,EstPresente,A,BUSDAT,RPS,S,P,LE);
 				      end
 			    Estado_2: case(RI)
 			    	      	CLA: A<=8'b0;
-					INA: {BC,A}<=A+2;
+					INA: {BC,A}<=A+1;
 					DCA: {BC,A}<=A-1;
 					ROL:begin
 					     BC<=A[7];
@@ -486,11 +486,17 @@ module reg_PC(CLK,RI,RPS,EstPresente,PC,BUSDAT,S,RDR,P,LE,PB,SDMA,INT);
 					RDR<={8'hff,BUSDAT};
 				     end
 				BCC: begin
- 
+					case(S[0])
+					1'b1: begin
+						PC<=PC;
+						RDR<=RDR+16'b1;
+					     end
+					1'b0: begin
 						PC<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
-					        RDR<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
-
-				     end
+						RDR<=BUSDAT[7] ? PC + {8'hFF,BUSDAT} : PC + {8'b0,BUSDAT};
+					     end
+					endcase
+				end
 				BCS:begin
 				    	case(S[0])
 					1'b1:begin
