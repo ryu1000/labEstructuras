@@ -62,8 +62,49 @@ ABTree<A,B,T>::ABTree(){
 	nodo1->node_children.insert(pair<T,ABNode<A,B,T>*>(10,nodo4));
 	nodo1->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,nodo5));
 	
+	//nodo 2
+	nodo2->node_keys.push_back(15);
+	nodo2->node_keys.push_back(imax);
+	nodo2->node_children.insert(pair<T,ABNode<A,B,T>*>(15,nodo6));
+	nodo2->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,nodo7));
+	
 	//nodo 3
 	nodo3->node_keys.push_back(3);
+	nodo3->node_keys.push_back(4);
+	nodo3->node_keys.push_back(imax);
+	nodo3->node_children.insert(pair<T,ABNode<A,B,T>*>(3,new ABNode<A,B,T>));
+	nodo3->node_children.insert(pair<T,ABNode<A,B,T>*>(4,new ABNode<A,B,T>));	
+	nodo3->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,new ABNode<A,B,T>));
+	
+	//nodo 4
+	nodo4->node_keys.push_back(6);
+	nodo4->node_keys.push_back(7);
+	nodo4->node_keys.push_back(8);
+	nodo4->node_keys.push_back(imax);
+	nodo4->node_children.insert(pair<T,ABNode<A,B,T>*>(6,new ABNode<A,B,T>));
+	nodo4->node_children.insert(pair<T,ABNode<A,B,T>*>(7,new ABNode<A,B,T>));
+	nodo4->node_children.insert(pair<T,ABNode<A,B,T>*>(8,new ABNode<A,B,T>));
+	nodo4->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,new ABNode<A,B,T>));
+	
+	//nodo 5
+	nodo5->node_keys.push_back(11);
+	nodo5->node_keys.push_back(imax);
+	nodo5->node_children.insert(pair<T,ABNode<A,B,T>*>(11,new ABNode<A,B,T>));
+	nodo5->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,new ABNode<A,B,T>));
+	
+	//nodo 6
+	nodo6->node_keys.push_back(13);
+	nodo6->node_keys.push_back(14);
+	nodo6->node_keys.push_back(imax);
+	nodo6->node_children.insert(pair<T,ABNode<A,B,T>*>(13,new ABNode<A,B,T>));
+	nodo6->node_children.insert(pair<T,ABNode<A,B,T>*>(14,new ABNode<A,B,T>));
+	nodo6->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,new ABNode<A,B,T>));
+	
+	//nodo 7
+	nodo7->node_keys.push_back(17);
+	nodo7->node_keys.push_back(imax);
+	nodo7->node_children.insert(pair<T,ABNode<A,B,T>*>(17,new ABNode<A,B,T>));
+	nodo7->node_children.insert(pair<T,ABNode<A,B,T>*>(imax,new ABNode<A,B,T>));	
 }
 
 template <int A,int B,class T>
