@@ -50,6 +50,7 @@
 
 
 
+//*************** Este bloque esta listo *****************************
 
 //Instrucciones con direccionamiento INDIRECTO
 //Nolas
@@ -59,8 +60,11 @@
  SUBind = 8'b00110011, // en el documento
  ANDind = 8'b01000011, // no funcionaba pero ahora si // en el documento
  ORAind = 8'b01010011, // no funcionaba pero ahora si // en el documento
- JSRind = 8'b01110011,
- JMPind = 8'b01100011,
+ JSRind = 8'b01110011, // no funcionaba pero ahora si // en el documento
+ JMPind = 8'b01100011, // no funcionaba pero ahora si // en el documento
+
+
+//********************************************************************
 
 
 

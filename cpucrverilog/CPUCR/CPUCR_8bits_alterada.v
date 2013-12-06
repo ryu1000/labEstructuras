@@ -684,7 +684,8 @@ module reg_PC(CLK,RI,RPS,EstPresente,PC,BUSDAT,S,RDR,P,LE,PB,SDMA,INT);
 						RDR<=PC;
 					     end
 					     //se agrego la instruccion ANDind a este caso
-					LDAind,SUBind,ADDind,ORAind,STAind,ANDind: begin
+					     //se agrego la instruccion JMPind a este caso
+					LDAind,SUBind,ADDind,ORAind,STAind,ANDind,JMPind: begin
 						  PC<=PC;
 						  RDR<=RDR+16'b1;
 						  PB<=BUSDAT;
@@ -854,11 +855,13 @@ module reg_LE(CLK,EstPresente,RI,LE,RPS,SDMA);
 		 Estado_1: LE<=1'b1;
 		 Estado_3: case(RI)
 		 	     PHA,PHS: LE<=1'b0;
-			     JSR: LE<=1'b0;
+		 	     //se agrego la instruccion JSRind
+			     JSR,JSRind: LE<=1'b0; 
 			     default: LE<=1'b1;
 			   endcase
 		 Estado_5: case(RI)
-		 	     JSR,OUT:LE<=1'b0;
+				 //se agrego la instruccion JSRind
+		 	     JSR,OUT,JSRind:LE<=1'b0;
 			     default: LE<=1'b1;
 			   endcase
 		 Estado_7: case(RI)
