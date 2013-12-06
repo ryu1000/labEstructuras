@@ -20,14 +20,18 @@ module memoria(Direccion,Datos,LE);
   begin
 	//irle agregando al arreglo M el contenido de la memoria
     M[0]=LDAinm;
-    M[1]=8'h09;
-    M[2]=OUT;
+    M[1]=8'h01;
+    M[2]=ORAind;
     M[3]=8'h00;
-    M[4]=HLT;
+    M[4]=8'h10;
     M[5]=STA;
     M[6]=8'h00;
-    M[7]=8'h20;
-	
+    M[7]=8'h30;
+    M[8]=HLT;
+    M[16'h1000]=8'h00;
+    M[16'h1001]=8'h20;
+    M[16'h2000]=8'h09;
+    
 
 
   end

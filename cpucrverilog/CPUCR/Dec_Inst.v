@@ -53,12 +53,12 @@
 
 //Instrucciones con direccionamiento INDIRECTO
 //Nolas
- LDAind = 8'b00000011, 
- STAind = 8'b00010011,
- ADDind = 8'b00100011,
- SUBind = 8'b00110011,
- ANDind = 8'b01000011,
- ORAind = 8'b01010011,
+ LDAind = 8'b00000011, // en el documento
+ STAind = 8'b00010011, // en el documento
+ ADDind = 8'b00100011, // en el documendo
+ SUBind = 8'b00110011, // en el documento
+ ANDind = 8'b01000011, // no funcionaba pero ahora si // en el documento
+ ORAind = 8'b01010011, // no funcionaba pero ahora si // en el documento
  JSRind = 8'b01110011,
  JMPind = 8'b01100011,
 

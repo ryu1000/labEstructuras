@@ -345,7 +345,7 @@ module acumulador(CLK,RI,EstPresente,A,BUSDAT,RPS,S,P,LE);
 				       ADDind: A<=A+BUSDAT;
 				       SUBind: A<=A-BUSDAT;
 				       ANDind: A<=A&BUSDAT;
-				       ORAind: A<=A&BUSDAT;
+				       ORAind: A<=A|BUSDAT; // se cambio & por |
 				       default: begin
 						   A<=A;
 						   BC<=BC;
@@ -683,7 +683,8 @@ module reg_PC(CLK,RI,RPS,EstPresente,PC,BUSDAT,S,RDR,P,LE,PB,SDMA,INT);
 						PC<=PC;
 						RDR<=PC;
 					     end
-					LDAind,SUBind,ADDind,ORAind,STAind: begin
+					     //se agrego la instruccion ANDind a este caso
+					LDAind,SUBind,ADDind,ORAind,STAind,ANDind: begin
 						  PC<=PC;
 						  RDR<=RDR+16'b1;
 						  PB<=BUSDAT;
