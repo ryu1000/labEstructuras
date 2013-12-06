@@ -19,14 +19,16 @@ module memoria(Direccion,Datos,LE);
   initial
   begin
 	//irle agregando al arreglo M el contenido de la memoria
-    M[0]=LDAinm;
-    M[1]=8'h06;
-    M[2]=HLT;
-    /*M[6]=STA;
+    M[0]=CLA;
+    M[1]=TAP;
+    M[2]=PLA;
+    M[3]=HLT;
+    M[4]=8'h20;
+    M[5]=HLT;
+    M[6]=8'h02;
     M[7]=8'h00;
-    M[8]=8'h10;
-    M[9]=HLT;
-	*/
+    M[16'hFFFF]=8'h09;
+	
 
 
   end
