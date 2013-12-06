@@ -116,10 +116,13 @@
 
 
 
+//**************** Este bloque esta listo ***************************
 
 //Instrucciones para ENTRADA/SALIDA
 //Nolas
- INP = 8'b00000111, 
- OUT = 8'b00010111;
+ INP = 8'b00000111, // en el documento
+ OUT = 8'b00010111; // en el documento
+ 
+//******************************************************************* 
 
 `define ActualizarNZ ((RI == ADD) || (RI == ADDinm) || (RI == ADDind) || (RI == AND) || (RI == ANDinm) || (RI == ANDind) || (RI == CLA) || (RI == CPA) || (RI == DCA) || (RI == INA) || (RI == INP) || (RI == LDA) || (RI == LDAinm) || (RI == LDAind) || (RI == PLA) || (RI == ORA) || (RI == ORAinm) || (RI == ORAind) || (RI == ROL) || (RI == ROR) || (RI == SUB) || (RI == SUBinm) || (RI == SUBind) || (RI == TPA)) 
