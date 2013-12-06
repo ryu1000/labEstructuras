@@ -97,16 +97,22 @@
 
 
 
+
+//*********************** Este bloque esta listo ********************
+
 //Instrucciones con direccionamiento CONTROL
 //Falta RTI, RTS, PHS
- TPA = 8'b00000110,
+ TPA = 8'b00000110, // en el documento
  TAP = 8'b00010110, // Siii :D funciona // esta en el documento
  RTI = 8'b00100110, // No hay que probar esta !!
  RTS = 8'b00110110, // Funciona // esta en el documento
- HLT = 8'b01000110, // Funciona
+ HLT = 8'b01000110, // NO Funciona, ahora si // esta en el documento
  NOP = 8'b01010110, //Funciona! // esta en el documento
  PLS = 8'b01100110, // Si funciona // esta en el documento
  PHS = 8'b01110110, // Si funciona // esta en el documento
+
+//*******************************************************************
+
 
 
 
